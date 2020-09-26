@@ -33,12 +33,15 @@ router.get('/', async (request, response) => {
         .limit(Number(request.query.limit));
     } else if (request.query.availableReservations === 'true') {
       meals = await knex('meal')
-        .select('meal.*')
-        .count('reservation.id')
+        .select('meal.*', knex.raw('sum(reservation.number_of_guests)'))
         .from('meal')
-        .leftJoin('reservation', 'meal.id', '=', 'reservation.id')
+        .leftJoin('reservation', 'meal.id', '=', 'reservation.meal_id')
         .groupBy('meal.id')
-        .having('meal.maxNumberOfGuests', '>', '.count(reservation.id)');
+        .having(
+          'meal.max_reservations',
+          '>',
+          knex.raw('sum(reservation.number_of_guests)')
+        );
     } else {
       //api/meals/	GET	Returns all meals	GET api/meals/
       meals = await knex('meal').select('*');

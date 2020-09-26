@@ -18,7 +18,7 @@ router.get('/', async (request, response) => {
 // api/reviews/	POST	Adds a new review	POST api/reviews/
 const createReview = async ({ body }) => {
   const { id, title, description, meal_id, stars, created_date } = body;
-  return await knex('reservation').insert({
+  return await knex('review').insert({
     id: id,
     title: title,
     description: description,

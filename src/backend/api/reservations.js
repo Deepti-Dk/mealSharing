@@ -17,6 +17,7 @@ router.get('/', async (request, response) => {
 
 // api/reservations/	POST	Adds a new reservation	POST api/reservations/
 const createReservation = async ({ body }) => {
+  console.log(body);
   const {
     id,
     number_of_guests,

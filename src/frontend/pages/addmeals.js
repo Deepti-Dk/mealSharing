@@ -43,8 +43,12 @@ window.handleAddMealRequest = (params) => {
   document.getElementById('formsubmit').addEventListener('click', addmeal);
 };
 
-/* <label for="when">Availability date:</label>
-<input type="text" id="when" name="when"><br><br> */
+function clearform() {
+  var inputs = document.querySelectorAll('input');
+  var textarea = document.querySelector('textarea');
+  inputs.forEach((input) => (input.value = ''));
+  textarea.value = '';
+}
 
 function addmeal(event) {
   event.preventDefault();
@@ -71,5 +75,5 @@ function addmeal(event) {
     },
   })
     .then((response) => response.json())
-    .then((json) => console.log(json));
+    .then((json) => clearform());
 }

@@ -48,6 +48,11 @@ window.handleReservationRequest = (params) => {
     .addEventListener('click', addreservation);
 };
 
+function clearform() {
+  var inputs = document.querySelectorAll('input');
+  inputs.forEach((input) => (input.value = ''));
+}
+
 function addreservation(event) {
   event.preventDefault();
   const mealid = document.getElementById('mealid').value;
@@ -72,5 +77,5 @@ function addreservation(event) {
     },
   })
     .then((response) => response.json())
-    .then((json) => console.log(json));
+    .then((json) => clearform());
 }

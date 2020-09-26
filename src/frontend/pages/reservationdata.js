@@ -32,7 +32,7 @@ window.handleReservationListRequest = () => {
       const ul = document.querySelector('.all-meals');
       for (let i = 0; i < reservations.length; i++) {
         let li = document.createElement('li');
-        li.innerHTML = `Reservation ID: ${reservations[i].id}\nMeal ID: ${reservations[i].meal_id}\nName: ${reservations[i].contact_name}\nNumber of guests: ${reservations[i].number_of_guests}`;
+        li.innerHTML = `Meal ID: ${reservations[i].meal_id}\nName: ${reservations[i].contact_name}\nNumber of guests: ${reservations[i].number_of_guests}`;
         ul.appendChild(li);
       }
     });

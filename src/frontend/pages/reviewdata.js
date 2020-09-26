@@ -36,7 +36,7 @@ window.handleReviewListRequest = () => {
           .toISOString()
           .slice(0, 10);
         let li = document.createElement('li');
-        li.innerHTML = `Review ID: ${reviews[i].id}\nTitle: ${reviews[i].title}\nDescription: ${reviews[i].description}\nMeal ID: ${reviews[i].meal_id}\nStars: ${reviews[i].stars}\nCreated date: ${createddate}`;
+        li.innerHTML = `Title: ${reviews[i].title}\nDescription: ${reviews[i].description}\nMeal ID: ${reviews[i].meal_id}\nStars: ${reviews[i].stars}\nCreated date: ${createddate}`;
         ul.appendChild(li);
       }
     });
